@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="db.properties"/>
+    <classPathEntry location="D:/Portable/apache-maven-3.5.4/repo/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar" />
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--链接数据库-->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!--创建javabean的指定路径-->
+        <javaModelGenerator
+                targetPackage="com.adu.crud.entity"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--指定sql映射文件路径-->
+        <sqlMapGenerator
+                targetPackage="com.adu.crud.dao"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--指定dao接口生成路劲-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.adu.crud.dao"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="t_emp" domainObjectName="Employee" />
+        <table tableName="t_dept" domainObjectName="Department" />
+
+    </context>
+</generatorConfiguration>
