@@ -6,6 +6,7 @@
     <!-- 实体类别名 -->
     <typeAliases>
         <package name="com.adu.crud.entity"/>
+        <package name="com.adu.crud.vo"/>
     </typeAliases>
 
     <plugins>

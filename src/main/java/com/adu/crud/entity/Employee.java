@@ -9,7 +9,7 @@ public class Employee {
 
     private String email;
 
-    private Integer deptId;
+    private Department department;
 
     public Integer getEmpId() {
         return empId;
@@ -43,11 +43,22 @@ public class Employee {
         this.email = email == null ? null : email.trim();
     }
 
-    public Integer getDeptId() {
-        return deptId;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDeptId(Integer deptId) {
-        this.deptId = deptId;
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                ", department=" + department +
+                '}';
     }
 }

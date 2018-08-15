@@ -12,10 +12,10 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
     <!-- 读取配置文件 location="classpath:db.properties" -->
-    <context:property-placeholder location="db.properties"/>
+    <context:property-placeholder location="classpath:db.properties" ignore-unresolvable="true"/>
 
     <!-- 扫描service注解 -->
-    <context:component-scan base-package="com.adu.crud.service"/>
+    <context:component-scan base-package="com.adu.crud"/>
 
     <!-- 设置数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
@@ -28,7 +28,7 @@
     <!-- 整合mybatis configLocation ==> classpath:mybatis-config.xml -->
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
     <!-- 设置一个批量操作 -->

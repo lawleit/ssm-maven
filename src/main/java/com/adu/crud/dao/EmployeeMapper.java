@@ -2,10 +2,9 @@ package com.adu.crud.dao;
 
 import com.adu.crud.entity.Employee;
 import com.adu.crud.entity.EmployeeExample;
-import java.util.List;
-
-import com.adu.crud.vo.EmployeeVo;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface EmployeeMapper {
     long countByExample(EmployeeExample example);
@@ -30,5 +29,5 @@ public interface EmployeeMapper {
 
     int updateByPrimaryKey(Employee record);
 
-    List<EmployeeVo> findAll(String test);
+    List<Employee> findAll(String test);
 }
