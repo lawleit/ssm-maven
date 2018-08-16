@@ -1,6 +1,5 @@
 package com.adu.crud.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,9 +14,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Arrays;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml", "classpath:spring/spring-mvc.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
 public class EmployeeControllerTest {
 
     /**
@@ -46,7 +47,7 @@ public class EmployeeControllerTest {
         System.out.println("当前页码：" + pageInfo.getPageNum());
         System.out.println("总页码：" + pageInfo.getPages());
         System.out.println("总记录数：" + pageInfo.getTotal());
-        System.out.println("在页面需要连续显示的页码：" + pageInfo.getNavigatepageNums());
+        System.out.println("在页面需要连续显示的页码：" + Arrays.toString(pageInfo.getNavigatepageNums()));
         System.out.println("数据源：" + pageInfo.getList());
     }
 }

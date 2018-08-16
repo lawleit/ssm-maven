@@ -3,6 +3,7 @@ package com.adu.crud.service.impl;
 import com.adu.crud.dao.EmployeeMapper;
 import com.adu.crud.entity.Employee;
 import com.adu.crud.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

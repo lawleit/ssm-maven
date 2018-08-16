@@ -3,7 +3,9 @@ package com.adu.crud.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ *
+ */
 public class Message {
 
     /**

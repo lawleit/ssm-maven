@@ -16,4 +16,8 @@
             <property name="reasonable" value="true"/>
         </plugin>
     </plugins>
+
+    <mappers>
+        <package name="com.adu.crud.dao"/>
+    </mappers>
 </configuration>

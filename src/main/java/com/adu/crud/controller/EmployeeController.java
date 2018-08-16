@@ -29,11 +29,14 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @RequestMapping(value = "/find",method = RequestMethod.GET)
-    public Message findAll(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex, Model model) throws Exception {
+    public String findAll(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex, Model model)
+            throws Exception {
         PageHelper.startPage(pageIndex, pageSize);
         List<Employee> employees = employeeService.findAll(null);
         PageInfo<Employee> pageInfo = new PageInfo<>(employees,5);
-        return Message.getSuccess().addAttribute("pageInfo",pageInfo);
+        model.addAttribute("pageInfo",pageInfo);
+        // return Message.getSuccess().addAttribute("pageInfo",pageInfo);
+        return "emplist";
     }
 
 }
