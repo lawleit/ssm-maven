@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,15 +29,26 @@ public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/find",method = RequestMethod.GET)
-    public String findAll(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex, Model model)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @ResponseBody
+    public Message list(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex)
             throws Exception {
         PageHelper.startPage(pageIndex, pageSize);
         List<Employee> employees = employeeService.findAll(null);
         PageInfo<Employee> pageInfo = new PageInfo<>(employees,5);
-        model.addAttribute("pageInfo",pageInfo);
-        // return Message.getSuccess().addAttribute("pageInfo",pageInfo);
-        return "emplist";
+         return Message.getSuccess().addAttribute("pageInfo",pageInfo);
     }
+
+//    @RequestMapping(value = "/find",method = RequestMethod.GET)
+//    public String findAll(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex, Model model)
+//            throws Exception {
+//        PageHelper.startPage(pageIndex, pageSize);
+//        List<Employee> employees = employeeService.findAll(null);
+//        PageInfo<Employee> pageInfo = new PageInfo<>(employees,5);
+//        model.addAttribute("pageInfo",pageInfo);
+//        // return Message.getSuccess().addAttribute("pageInfo",pageInfo);
+//        return "emplist";
+//    }
+
 
 }

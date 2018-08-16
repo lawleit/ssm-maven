@@ -39,11 +39,12 @@ public class EmployeeControllerTest {
     public void testFindAll() throws Exception {
 
         // 模拟请求拿到返回值
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/employee/find")
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/employee/list")
                 .param("pageIndex", "1")).andReturn();
-
+//        mvcResult.getResponse().content
         // 得到request中pageInfo
         PageInfo pageInfo = (PageInfo) mvcResult.getRequest().getAttribute("pageInfo");
+
         System.out.println("当前页码：" + pageInfo.getPageNum());
         System.out.println("总页码：" + pageInfo.getPages());
         System.out.println("总记录数：" + pageInfo.getTotal());

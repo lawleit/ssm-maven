@@ -21,6 +21,8 @@
     <!-- 扫描注解 -->
     <context:component-scan base-package="com.adu.crud"/>
 
+
+    <!-- #region 设置数据源, 集成Mybatis -->
     <!-- 设置数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -45,6 +47,19 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.adu.crud.dao"/>
     </bean>
+    <!-- endregion -->
+
+    <!-- #region -->
+    <!-- 集成Spring MVC -->
+    <!--使用最新的适配器和映射器功能-->
+    <mvc:annotation-driven/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--将springmvc不能处理的请求交给tomcat-->
+    <!--<mvc:default-servlet-handler/>-->
+    <!-- #endregion -->
 
     <!-- 事务管理 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -83,14 +98,4 @@
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.adu.crud.service.*.*(..))"/>
     </aop:config>
-
-    <!-- 集成Spring MVC -->
-    <!--使用最新的适配器和映射器功能-->
-    <mvc:annotation-driven/>
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
-    <!--将springmvc不能处理的请求交给tomcat-->
-    <!--<mvc:default-servlet-handler/>-->
 </beans>
