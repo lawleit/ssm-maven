@@ -29,7 +29,12 @@ public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = "list",method = RequestMethod.GET)
+    public String accessEmpList(){
+        return "emplist";
+    }
+
+    @RequestMapping(value = "/list",method = RequestMethod.POST)
     @ResponseBody
     public Message list(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex)
             throws Exception {
