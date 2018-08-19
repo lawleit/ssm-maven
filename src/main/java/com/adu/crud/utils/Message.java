@@ -68,6 +68,7 @@ public class Message {
      */
     public static Message getSuccess(){
         Message message = new Message();
+        message.setCode(200);
         message.isSuccess = true;
         message.setMsg("操作成功");
         return message;
