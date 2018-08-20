@@ -175,7 +175,16 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.11.v20180605</version>
                 <configuration>
-
+                    <httpConnector>
+                        <port>8080</port>
+                        <host>localhost</host>
+                    </httpConnector>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <reload>manual</reload>
+                    <webApp>
+                        <!--<contextPath>/</contextPath>-->
+                    </webApp>
+                    
                 </configuration>
                 <!--<executions>-->
                     <!--<execution>-->

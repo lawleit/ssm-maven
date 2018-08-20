@@ -16,9 +16,7 @@ import java.util.List;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    /**
-     * 每页显示的记录数
-     */
+    // 每页显示的记录数
     @Value("${global.pageSize}")
     private int pageSize;
 
@@ -42,19 +40,19 @@ public class EmployeeController {
         PageHelper.startPage(pageIndex, pageSize);
         List<Employee> employees = employeeService.findAll(null);
         PageInfo<Employee> pageInfo = new PageInfo<>(employees,5);
-         return Message.getSuccess().addAttribute("pageInfo",pageInfo);
+        return Message.getSuccess().addAttribute("pageInfo",pageInfo);
     }
 
-//    @RequestMapping(value = "/find",method = RequestMethod.GET)
-//    public String findAll(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex, Model model)
-//            throws Exception {
-//        PageHelper.startPage(pageIndex, pageSize);
-//        List<Employee> employees = employeeService.findAll(null);
-//        PageInfo<Employee> pageInfo = new PageInfo<>(employees,5);
-//        model.addAttribute("pageInfo",pageInfo);
-//        // return Message.getSuccess().addAttribute("pageInfo",pageInfo);
-//        return "emplist";
-//    }
+   // @RequestMapping(value = "/find",method = RequestMethod.GET)
+   // public String findAll(@RequestParam(value = "pageIndex",defaultValue = "1" ) Integer pageIndex, Model model)
+   //         throws Exception {
+   //     PageHelper.startPage(pageIndex, pageSize);
+   //     List<Employee> employees = employeeService.findAll(null);
+   //     PageInfo<Employee> pageInfo = new PageInfo<>(employees,5);
+   //     model.addAttribute("pageInfo",pageInfo);
+   //     // return Message.getSuccess().addAttribute("pageInfo",pageInfo);
+   //     return "emplist";
+   // }
 
 
 }

@@ -9,7 +9,27 @@ public class Employee {
 
     private String email;
 
+    private String deptId;
+
     private Department department;
+
+    public Employee() {    }
+
+    public Employee(Integer empId, String empName, String gender, String email, String deptId) {
+        this.empId = empId;
+        this.empName = empName;
+        this.gender = gender;
+        this.email = email;
+        this.deptId = deptId;
+    }
+
+    public Employee(Integer empId, String empName, String gender, String email, Department department) {
+        this.empId = empId;
+        this.empName = empName;
+        this.gender = gender;
+        this.email = email;
+        this.department = department;
+    }
 
     public Integer getEmpId() {
         return empId;
@@ -41,6 +61,14 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    public String getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(String departId) {
+        this.deptId = departId;
     }
 
     public Department getDepartment() {

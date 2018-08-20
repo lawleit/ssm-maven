@@ -64,7 +64,7 @@ public class Message {
 
     /**
      * 成功返回
-     * @return
+     * @return Message
      */
     public static Message getSuccess(){
         Message message = new Message();
@@ -76,7 +76,7 @@ public class Message {
 
     /**
      * 错误返回
-     * @return
+     * @return Message
      */
     public static Message getError(){
         Message message = new Message();
@@ -88,9 +88,9 @@ public class Message {
 
     /**
      * 数据源添加数据
-     * @param key
-     * @param value
-     * @return
+     * @param key 键
+     * @param value 值
+     * @return Message
      */
     public Message addAttribute(String key, Object value){
         maps.put(key, value);

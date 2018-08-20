@@ -6,7 +6,7 @@
         <id column="emp_id" property="empId"/>
         <result column="emp_name" property="empName"/>
         <result column="gender" property="gender"/>
-        <!--<result column="dept_id" property="deptId"/>-->
+        <result column="dept_id" property="deptId"/>
         <result column="email" property="email"/>
         <association column="dept_id" property="department" javaType="department">
             <id column="dept_id" property="deptId"/>
@@ -126,7 +126,7 @@
                 #{empName,jdbcType=VARCHAR},
                 #{gender,jdbcType=VARCHAR},
                 #{email,jdbcType=VARCHAR},
-                #{deptId,jdbcType=INTEGER})
+                #{department.deptId,jdbcType=INTEGER})
     </insert>
     <insert id="insertSelective" parameterType="com.adu.crud.entity.Employee">
         insert into t_emp

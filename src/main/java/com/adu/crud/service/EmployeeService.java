@@ -8,8 +8,8 @@ public interface EmployeeService {
 
     /**
      *
-     * @param test
+     * @param employee
      * @return
      */
-    List<Employee> findAll(String test);
+    List<Employee> findAll(Employee employee);
 }
