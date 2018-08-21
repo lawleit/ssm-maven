@@ -31,10 +31,15 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <!-- 整合mybatis configLocation ==> classpath:mybatis-config.xml -->
+    <!-- 集成mybatis configLocation ==> classpath:mybatis-config.xml -->
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    </bean>
+
+    <!-- 配置扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.adu.crud.dao"/>
     </bean>
 
     <!-- 设置一个批量操作 -->
@@ -43,10 +48,6 @@
         <constructor-arg name="executorType" value="BATCH"/>
     </bean>
 
-    <!-- 配置扫描器 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.adu.crud.dao"/>
-    </bean>
     <!-- endregion -->
 
     <!-- #region -->

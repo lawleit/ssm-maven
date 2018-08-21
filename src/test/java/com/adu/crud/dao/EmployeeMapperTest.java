@@ -29,10 +29,10 @@ import java.util.UUID;
 @ContextConfiguration(locations = {"classpath:spring/applicationContext*.xml"})
 public class EmployeeMapperTest {
 
+    private String uuid = uuid= UUID.randomUUID().toString();
+
     @Resource
     private EmployeeMapper employeeMapper;
-
-    String uuid = uuid= UUID.randomUUID().toString();
 
     @Before
     public void setUp() throws Exception {

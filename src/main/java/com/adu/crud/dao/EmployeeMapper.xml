@@ -13,7 +13,7 @@
             <result column="dept_name" property="deptName"/>
         </association>
     </resultMap>
-    <select id="findAll" parameterType="string" resultMap="employeeAll">
+    <select id="findAll" parameterType="employee" resultMap="employeeAll">
         SELECT a.*, b.dept_name
         FROM t_emp a
                  LEFT JOIN t_dept b ON a.dept_id = b.dept_id

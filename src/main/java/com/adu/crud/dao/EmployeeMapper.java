@@ -29,5 +29,5 @@ public interface EmployeeMapper {
 
     int updateByPrimaryKey(Employee record);
 
-    List<Employee> findAll(String test);
+    List<Employee> findAll(Employee employee);
 }
